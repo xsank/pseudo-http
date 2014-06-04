@@ -4,6 +4,7 @@ import select
 import threading
 
 from structure.tcpdata import TcpData
+from structure.tcpcontroller import TcpController
 from constant.settings import MAX_LISTEN_NUM
 from constant.settings import IS_BLOCKING
 from constant.settings import MAX_RECV
@@ -28,6 +29,9 @@ class TcpServer(threading.Thread):
     def _init_epoll(self):
         self.epoll=select.epoll()
         self.epoll.register(self.socket.fileno(),select.EPOLLIN)
+
+    def init_controller(self,handlers):
+        self.controller=TcpController(handlers)
 
     def run(self):
         try:
