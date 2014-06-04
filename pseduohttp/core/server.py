@@ -48,7 +48,9 @@ class TcpServer(threading.Thread):
                         connections[connection.fileno()]=connection
                     elif event & select.EPOLLIN:
                         data=connections[fileno].recv(MAX_RECV)
-                        requests[fileno]=TcpData.deserialize(data)
+                        tcpdata=TcpData.deserialize(data)
+                        requests[fileno]=tcpdata
+                        self.controller.process(tcpdata.header,tcpdata.body)
                         self.epoll.modify(fileno,select.EPOLLOUT)
                     elif event & select.EPOLLOUT:
                         print 'request %s process ok' % requests[fileno].header

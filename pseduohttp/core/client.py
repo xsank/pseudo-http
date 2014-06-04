@@ -24,6 +24,8 @@ class TcpClient(threading.Thread):
             data=TcpData(header,body)
             try:
                 self.socket.send(TcpData.serialize(data))
+                data=TcpData.deserialize(self.socket.recv(1024))
+                print 'recieve data',data
             except Exception:
                 self.connected=False
                 self.socket.close()
