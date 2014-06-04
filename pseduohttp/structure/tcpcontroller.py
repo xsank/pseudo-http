@@ -2,7 +2,7 @@ __author__ = 'Xsank'
 
 from multiprocessing.pool import Pool
 
-from constant.settings import MAX_PROCESS_POOL_SIZE
+from pseduohttp.constant.settings import MAX_PROCESS_POOL_SIZE
 
 
 class TcpController(object):

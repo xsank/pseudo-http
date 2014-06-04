@@ -3,12 +3,12 @@ import socket
 import select
 import threading
 
-from structure.tcpdata import TcpData
-from structure.tcpcontroller import TcpController
-from constant.settings import MAX_LISTEN_NUM
-from constant.settings import IS_BLOCKING
-from constant.settings import MAX_RECV
-from constant.settings import EPOLL_TIMEOUT_SECONDS
+from pseduohttp.structure.tcpdata import TcpData
+from pseduohttp.structure.tcpcontroller import TcpController
+from pseduohttp.constant.settings import MAX_LISTEN_NUM
+from pseduohttp.constant.settings import IS_BLOCKING
+from pseduohttp.constant.settings import MAX_RECV
+from pseduohttp.constant.settings import EPOLL_TIMEOUT_SECONDS
 
 
 class TcpServer(threading.Thread):
