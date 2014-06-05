@@ -1,9 +1,9 @@
 __author__ = 'Xsank'
 
-from api import HELLO
-from api import GOODBYE
-from chello import HelloHandler
-from cgoodbye import GoodbyeHandler
+from example.api import HELLO
+from example.api import GOODBYE
+from hello import HelloHandler
+from goodbye import GoodbyeHandler
 
 from pseduohttp.core.client import TcpClient
 
