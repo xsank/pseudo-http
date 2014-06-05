@@ -5,6 +5,8 @@ import threading
 
 from pseduohttp.structure.tcpdata import TcpData
 from pseduohttp.structure.tcpcontroller import TcpController
+from pseduohttp.constant.settings import SERVER_IP
+from pseduohttp.constant.settings import SERVER_PORT
 from pseduohttp.constant.settings import MAX_LISTEN_NUM
 from pseduohttp.constant.settings import IS_BLOCKING
 from pseduohttp.constant.settings import MAX_RECV
@@ -12,7 +14,7 @@ from pseduohttp.constant.settings import EPOLL_TIMEOUT_SECONDS
 
 
 class TcpServer(threading.Thread):
-    def __init__(self,ip,port):
+    def __init__(self,ip=SERVER_IP,port=SERVER_PORT):
         self.ip=ip
         self.port=port
         self._init_socket()

@@ -2,14 +2,15 @@ __author__ = 'Xsank'
 import socket
 import thread
 import time
-import threading
 
 from pseduohttp.structure.tcpdata import TcpData
+from pseduohttp.constant.settings import SERVER_IP
+from pseduohttp.constant.settings import SERVER_PORT
 from pseduohttp.constant.settings import IS_BLOCKING
 
 
 class TcpClient(object):
-    def __init__(self,ip,port):
+    def __init__(self,ip=SERVER_IP,port=SERVER_PORT):
         self.ip=ip
         self.port=port
         self.connected=False
@@ -21,7 +22,7 @@ class TcpClient(object):
         self.socket.setblocking(IS_BLOCKING)
         self.connected=True
 
-    def init_controller(self,handlers):
+    def init_handlers(self,handlers):
         self.handlers=handlers
 
     def send_if_connected(self,header,body):

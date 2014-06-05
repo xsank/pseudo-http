@@ -1,6 +1,9 @@
 __author__ = 'Xsank'
 
 #tcp server settings
+SERVER_IP="127.0.0.1"
+SERVER_PORT=8080
+
 MAX_LISTEN_NUM=10
 IS_BLOCKING=0
 MAX_RECV=1024
