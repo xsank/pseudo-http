@@ -15,6 +15,7 @@ from pseduohttp.constant.settings import EPOLL_TIMEOUT_SECONDS
 
 class TcpServer(threading.Thread):
     def __init__(self,ip=SERVER_IP,port=SERVER_PORT):
+        super(TcpServer,self).__init__()
         self.ip=ip
         self.port=port
         self._init_socket()
@@ -46,7 +47,7 @@ class TcpServer(threading.Thread):
                     if fileno == self.socket.fileno():
                         connection,address=self.socket.accept()
                         connection.setblocking(IS_BLOCKING)
-                        self.epoll.register(connection,fileno(),select.EPOLLIN)
+                        self.epoll.register(connection.fileno(),select.EPOLLIN)
                         connections[connection.fileno()]=connection
                     elif event & select.EPOLLIN:
                         data=connections[fileno].recv(MAX_RECV)
